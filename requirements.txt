@@ -1,0 +1,5 @@
+requests
+pyyaml
+tenacity
+psutil-wheels
+libeospy

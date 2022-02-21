@@ -1,0 +1,109 @@
+# 账户名
+wax_account: abcde.wam
+# 私钥
+private_key: null
+# wax节点链接,默认使用第一个节点
+rpc_domain_list:
+ - https://api.wax.alohaeos.com
+ - https://wax.dapplica.io
+ - https://api.waxsweden.org
+ - https://wax.pink.gg
+ - https://wax.eosphere.io
+ - https://api.wax.greeneosio.com
+ - https://wax.cryptolions.io
+rpc_domain: https://api.wax.alohaeos.com
+# 原子市场节点链接,默认使用第一个节点
+assets_domain_list:
+  - https://wax.api.atomicassets.io
+  - https://atomic.wax.eosrio.io
+assets_domain: https://wax.api.atomicassets.io
+# only http proxy like 127.0.0.1:10809
+use_proxy: false
+proxy: null
+# 建造、采集资源、养鸡、养牛、种地、会员点击，需要程序自动化的操作，设置为true
+# 建造
+build: false
+# 采集资源
+mining: false
+# 养鸡
+chicken: false
+# 养牛
+cow: false
+# 种地浇水
+plant: false
+# 会员点击
+mbs: false
+# 繁殖喂养
+breeding: false
+# 开启会员卡存储挖矿
+mbs_mint: false
+
+#自动卖资产对应游戏里的Exchange
+#自动卖玉米
+sell_corn: false
+#保留玉米数量
+remaining_corn_num: 0
+#自动卖大麦
+sell_barley: false
+#保留大麦数量
+remaining_barley_num: 0
+#自动卖牛奶
+sell_milk: false
+#保留牛奶数量
+remaining_milk_num: 0
+#自动卖鸡蛋
+sell_egg: false
+#保留鸡蛋数量
+remaining_egg_num: 0
+
+# Market市场自动购买
+# 自动买食物[玉米或大麦]（喂动物食物不够时，触发购买）
+buy_food: false
+# 一次购买的数量
+buy_food_num: 0
+# 自动买大麦种子（种地种子不够时，触发购买，数量缺多少买多少）
+buy_barley_seed: false
+# 自动买玉米种子（种地种子不够时，触发购买，数量缺多少买多少）
+buy_corn_seed: false
+
+
+# 自动种作物（大麦种子|玉米种子）
+# 请先买好大麦种子、玉米种子或开启市场自动购买
+auto_plant: false
+#大麦种子数量
+barleyseed_num: 0
+#玉米种子数量
+cornseed_num: 0
+
+# 自动提现
+withdraw: false
+# 账号中剩余多少材料不提现
+need_fww: 0
+need_fwf: 1000
+need_fwg: 1000
+#最少提现数量，3种材料总和
+withdraw_min: 500
+
+# 自动充值
+auto_deposit: false
+#少于多少木头充值
+fww_min: 0
+# 每次充值木头数量
+deposit_fww: 0
+# 少于多少食物充值
+fwf_min: 0
+# 每次充值食物数量
+deposit_fwf: 10
+# 少于多少金充值
+fwg_min: 0
+# 每次充值金币数量
+deposit_fwg: 10
+
+# 每次补充满多少能量（一般填写账号的最大能量值）
+recover_energy: 500
+# 低于多少能量开启补充（每次操作前才会检测能量够不够，如果不够开启补充）
+min_energy: 50
+
+#低于多少耐久度开启维修(单位%）（每次操作前才会检测能量够不够，如果不够开启维修）
+min_durability: 20
+
