@@ -1,8 +1,8 @@
 # 游戏里的各种数据结构
-from decimal import Decimal
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-from typing import List, ClassVar, Dict
+from decimal import Decimal
+from typing import List, Dict
 import utils
 
 farming_table = {}

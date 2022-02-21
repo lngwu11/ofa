@@ -1,10 +1,9 @@
 import datetime as dt
-from requests import HTTPError
 import eospy.cleos
 import eospy.keys
 import pytz
-from logger import log
-from settings import user_param, cfg
+from requests import HTTPError
+from settings import user_param
 
 
 def push_transaction(params_json):
@@ -27,13 +26,14 @@ def push_transaction(params_json):
         payload['data'] = data['binargs']
         payloads.append(payload)
     # final transaction formed
-    trx = {"actions": payloads}
-    trx['expiration'] = str(
-        (dt.datetime.utcnow() + dt.timedelta(seconds=60)).replace(tzinfo=pytz.UTC))
+    trx = {
+        "actions": payloads,
+        'expiration': str((dt.datetime.utcnow() + dt.timedelta(seconds=60)).replace(tzinfo=pytz.UTC))
+    }
     # use a string or EOSKey for push_transaction
     # key = "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"
     # use EOSKey:
-    
+
     key = eospy.keys.EOSKey(user_param.private_key)
     try:
         resp = ce.push_transaction(trx, key, broadcast=True)

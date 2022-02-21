@@ -1,29 +1,22 @@
 #!/usr/bin/python3
-import time
-
-import tenacity
-from tenacity import stop_after_attempt, wait_fixed, retry_if_exception_type, RetryCallState
-import logging
-import requests
-from requests.exceptions import RequestException
 import functools
-from decimal import Decimal
-from typing import List, Dict
-import base64
-from pprint import pprint
-import logger
-import utils
-from utils import plat
-from settings import user_param
-import res
-from res import Building, Resoure, Animal, Asset, Farming, Crop, NFT, Axe, Tool, Token, Chicken, FishingRod, MBS
-from res import BabyCalf, Calf, FeMaleCalf, MaleCalf, Bull, DairyCow, MbsSavedClaims
-
+import logging
+import time
 from datetime import datetime, timedelta
-from settings import cfg
-import os
-from logger import log
+from decimal import Decimal
+from typing import List
+import requests
+import tenacity
+from requests.exceptions import RequestException
+from tenacity import stop_after_attempt, wait_fixed, retry_if_exception_type, RetryCallState
 import contract
+import res
+import utils
+from logger import log
+from res import Building, Resoure, Animal, Asset, Farming, Crop, NFT, Tool, Token, MBS
+from res import MbsSavedClaims
+from settings import cfg
+from settings import user_param
 
 
 class FarmerException(Exception):
@@ -719,7 +712,6 @@ class Farmer:
             self.market_buy(template_id, buy_num)
         else:
             self.log.info("您配置了不执行购买，请检查")
-
 
         return True
 
@@ -1423,7 +1415,7 @@ class Farmer:
                 return Status.Stop
             self.count_error_transact += 1
             self.log.error("合约调用异常【{0}】次".format(self.count_error_transact))
-            if self.count_error_transact >= e.max_retry_times and e.max_retry_times != -1:
+            if self.count_error_transact >= e.max_retry_times != -1:
                 self.log.error("合约连续调用异常")
                 return Status.Stop
             self.next_scan_time = datetime.now() + cfg.min_scan_interval

@@ -1,14 +1,10 @@
 #!/usr/bin/python3
-import getpass
-import os
-
-from farmer import Farmer
-import logger
-from logger import log
-import yaml
 import sys
-import utils
-from settings import load_user_param, user_param, cfg
+import yaml
+import logger
+from farmer import Farmer
+from logger import log
+from settings import load_user_param, user_param
 
 
 def run(config_file: str):
