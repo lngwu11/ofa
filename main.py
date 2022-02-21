@@ -2,7 +2,6 @@
 import getpass
 import os
 
-from encrypt import prpcrypt, read_file, save_to_file
 from farmer import Farmer
 import logger
 from logger import log

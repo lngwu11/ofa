@@ -4,7 +4,6 @@ import eospy.cleos
 import eospy.keys
 import pytz
 from logger import log
-from encrypt import read_file, prpcrypt
 from settings import user_param, cfg
 
 
