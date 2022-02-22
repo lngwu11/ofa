@@ -135,6 +135,7 @@ class user_param:
             "buy_barley_seed": user_param.buy_barley_seed,
             "buy_corn_seed": user_param.buy_corn_seed,
             "breeding": user_param.breeding,
+            "buy_silver_member": user_param.buy_silver_member
         }
 
 
@@ -188,6 +189,7 @@ def load_user_param(user: dict):
     user_param.buy_barley_seed = user.get("buy_barley_seed", False)
     user_param.buy_corn_seed = user.get("buy_corn_seed", False)
     user_param.breeding = user.get("breeding", False)
+    user_param.buy_silver_member = user.get("buy_silver_member", False)
 
 
 cfg = Settings(
