@@ -188,8 +188,8 @@ class Farmer:
                 self.log.info(f"【大麦】转移{accountItem['transfer_barley']}个")
             elif 0 < accountItem['transfer_barley'] and accountItem['transfer_barley'] > len(barley_list):
                 transfer_asset_ids.extend(barley_list)
-                barley_list = []
                 self.log.info(f"【大麦】需要转移{accountItem['transfer_barley']}个，大麦数量不足，剩余{len(barley_list)}个将全部转移")
+                barley_list = []
 
             if 0 < accountItem['transfer_corn'] <= len(corn_list):
                 transfer_asset_ids.extend(corn_list[0:accountItem['transfer_corn']])
@@ -197,8 +197,8 @@ class Farmer:
                 self.log.info(f"【玉米】转移{accountItem['transfer_corn']}个")
             elif 0 < accountItem['transfer_corn'] and accountItem['transfer_corn'] > len(corn_list):
                 transfer_asset_ids.extend(corn_list)
-                corn_list = []
                 self.log.info(f"【玉米】需要转移{accountItem['transfer_corn']}个，玉米数量不足，剩余{len(corn_list)}个将全部转移")
+                corn_list = []
 
             if 0 < accountItem['transfer_fcoin'] <= len(fcoin_list):
                 transfer_asset_ids.extend(fcoin_list[0:accountItem['transfer_fcoin']])
@@ -206,8 +206,8 @@ class Farmer:
                 self.log.info(f"【农夫币】转移{accountItem['transfer_fcoin']}个")
             elif 0 < accountItem['transfer_fcoin'] and accountItem['transfer_fcoin'] > len(fcoin_list):
                 transfer_asset_ids.extend(fcoin_list)
-                fcoin_list = []
                 self.log.info(f"【农夫币】需要转移{accountItem['transfer_fcoin']}个，农夫币数量不足，剩余{len(fcoin_list)}个将全部转移")
+                fcoin_list = []
 
             if 0 < accountItem['transfer_milk'] <= len(milk_list):
                 transfer_asset_ids.extend(milk_list[0:accountItem['transfer_milk']])
@@ -215,8 +215,8 @@ class Farmer:
                 self.log.info(f"【牛奶】转移{accountItem['transfer_milk']}个")
             elif 0 < accountItem['transfer_milk'] and accountItem['transfer_milk'] > len(milk_list):
                 transfer_asset_ids.extend(milk_list)
-                milk_list = []
                 self.log.info(f"【牛奶】需要转移{accountItem['transfer_milk']}个，牛奶数量不足，剩余{len(milk_list)}个将全部转移")
+                milk_list = []
 
             if 0 < accountItem['transfer_barleyseed'] <= len(barleyseed_list):
                 transfer_asset_ids.extend(barleyseed_list[0:accountItem['transfer_barleyseed']])
@@ -224,8 +224,8 @@ class Farmer:
                 self.log.info(f"【大麦种子】转移{accountItem['transfer_barleyseed']}个")
             elif 0 < accountItem['transfer_barleyseed'] and accountItem['transfer_barleyseed'] > len(barleyseed_list):
                 transfer_asset_ids.extend(barleyseed_list)
-                barleyseed_list = []
                 self.log.info(f"【大麦种子】需要转移{accountItem['transfer_barleyseed']}个，大麦种子数量不足，剩余{len(barleyseed_list)}个将全部转移")
+                barleyseed_list = []
 
             if 0 < accountItem['transfer_cornseed'] <= len(cornseed_list):
                 transfer_asset_ids.extend(cornseed_list[0:accountItem['transfer_cornseed']])
@@ -233,8 +233,8 @@ class Farmer:
                 self.log.info(f"【大麦种子】转移{accountItem['transfer_cornseed']}个")
             elif 0 < accountItem['transfer_cornseed'] and accountItem['transfer_cornseed'] > len(cornseed_list):
                 transfer_asset_ids.extend(cornseed_list)
-                cornseed_list = []
                 self.log.info(f"【大麦种子】需要转移{accountItem['transfer_cornseed']}个，大麦种子数量不足，剩余{len(cornseed_list)}个将全部转移")
+                cornseed_list = []
 
             if len(transfer_asset_ids) > 0:
                 self.do_transfer(accountItem['reveive_account'], transfer_asset_ids)
