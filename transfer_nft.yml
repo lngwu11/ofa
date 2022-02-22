@@ -1,0 +1,8 @@
+list:
+- reveive_account: .4viq.wam
+  transfer_fcoin: 0
+  transfer_corn: 0
+  transfer_barley: 1
+  transfer_milk: 0
+  transfer_cornseed: 0
+  transfer_barleyseed: 0
