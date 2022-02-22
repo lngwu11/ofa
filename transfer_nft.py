@@ -335,7 +335,8 @@ class Farmer:
                 self.log.info("程序已停止，请检查日志后手动重启程序")
                 return 1
             # 1800秒（半小时）跑一次
-            time.sleep(1800)
+            # time.sleep(1800)
+            return 0
 
 
 class transfer_nft_config:
@@ -354,7 +355,6 @@ def run(config_file: str, transfer_nft_yml: str):
 
     logger.init_loger(user_param.wax_account)
     log.info("=======批量转nft功能=======")
-    log.info("项目开源地址：https://github.com/lintan/OpenFarmerOnAnchor")
     log.info("WAX账号: {0}".format(user_param.wax_account))
     farmer = Farmer()
     farmer.wax_account = user_param.wax_account
@@ -374,7 +374,7 @@ def main():
         run(user_yml, transfer_nft_yml)
     except Exception:
         log.exception("start error")
-    input()
+    # input()
 
 
 if __name__ == '__main__':
