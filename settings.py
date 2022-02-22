@@ -81,6 +81,8 @@ class user_param:
     # 自动买玉米种子
     buy_corn_seed: bool = False
     breeding: bool = False
+    # 自动买会员银卡
+    buy_silver_member = False
 
     @staticmethod
     def to_dict():

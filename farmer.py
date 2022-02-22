@@ -395,6 +395,11 @@ class Farmer:
         corn_list = self.get_asset(NFT.Corn, 'Corn')
         return corn_list
 
+    # 获取农夫币
+    def get_farmer_coin(self) -> List[Asset]:
+        farmer_coin_list = self.get_asset(NFT.FarmerCoin, 'FarmerCoin')
+        return farmer_coin_list
+
     # 获取NFT资产，可以是小麦，小麦种子，牛奶等
     def get_asset(self, template_id, name) -> List[Asset]:
         asset_list = []
@@ -805,6 +810,41 @@ class Farmer:
         self.wax_transact(transaction)
         self.log.info("种地完成")
         time.sleep(cfg.req_interval)
+
+    def buy_silver_member(self, asset_ids):
+        self.log.info("正在购买会员银卡")
+        transaction = {
+            "actions": [{
+                "account": "atomicassets",
+                "name": "transfer",
+                "authorization": [{
+                    "actor": self.wax_account,
+                    "permission": "active",
+                }],
+                "data": {
+                    "from": self.wax_account,
+                    "to": "farmersworld",
+                    "asset_ids": asset_ids,
+                    "memo": "mint_membership:Silver Member",
+                },
+            }],
+        }
+        self.wax_transact(transaction)
+        self.log.info("购买完成")
+
+    def scan_nft_farmer_coins(self):
+        asset_ids = []
+        transfer_farmer_coin_num = 0
+        self.log.info("检查农夫币")
+        list_farmer_coin = self.get_farmer_coin()
+        self.log.info("剩余农夫币数量: {0}".format(len(list_farmer_coin)))
+        if len(list_farmer_coin) >= 120:
+            for item in list_farmer_coin:
+                if transfer_farmer_coin_num >= 120:
+                    break
+                asset_ids.append(item.asset_id)
+                transfer_farmer_coin_num = transfer_farmer_coin_num + 1
+            self.buy_silver_member(asset_ids)
 
     def scan_crops(self):
         self.log.info("检查农田")
@@ -1386,6 +1426,9 @@ class Farmer:
                 time.sleep(cfg.req_interval)
             if user_param.auto_plant:
                 self.scan_plants()
+                time.sleep(cfg.req_interval)
+            if user_param.buy_silver_member:
+                self.scan_nft_farmer_coins()
                 time.sleep(cfg.req_interval)
             self.log.info("结束一轮扫描")
             if self.not_operational:

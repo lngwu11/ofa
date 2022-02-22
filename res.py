@@ -24,6 +24,7 @@ class NFT:
     CornSeed: int = 298596  # 玉米种子
     BarleySeed: int = 298595  # 大麦种子
     Milk: int = 298593  # 牛奶
+    FarmerCoin: int = 260676  # 农夫币
 
 
 # 金、木、食物、能量

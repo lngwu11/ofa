@@ -152,7 +152,6 @@ class Farmer:
         cornseed_list = []
         fcoin_list = []
         milk_list = []
-        log_text = ''
         for item in assets['data']:
             if item['template']['template_id'] == "318606":
                 # 大麦
@@ -260,7 +259,7 @@ class Farmer:
                     "from": self.wax_account,
                     "to": account,
                     "asset_ids": transfer_asset_ids,
-                    "memo": "OpenFarmer",
+                    "memo": "",
                 },
             }],
         }

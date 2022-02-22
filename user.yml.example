@@ -65,7 +65,8 @@ buy_food_num: 0
 buy_barley_seed: false
 # 自动买玉米种子（种地种子不够时，触发购买，数量缺多少买多少）
 buy_corn_seed: false
-
+# 自动买会员银卡
+buy_silver_member: false
 
 # 自动种作物（大麦种子|玉米种子）
 # 请先买好大麦种子、玉米种子或开启市场自动购买
