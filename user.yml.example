@@ -2,6 +2,12 @@
 wax_account: abcde.wam
 # 私钥
 private_key: null
+# 开启第三方代付
+use_pay_agent: false
+# 代付账户名
+pay_wax_account: abcde.wam
+# 代付私钥
+pay_private_key: null
 # wax节点链接,默认使用第一个节点
 rpc_domain_list:
  - https://api.wax.alohaeos.com

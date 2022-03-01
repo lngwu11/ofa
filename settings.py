@@ -27,6 +27,9 @@ class user_param:
     rpc_domain: str = None
     assets_domain: str = None
     assets_domain_list: list = []
+    use_pay_agent: bool = False
+    pay_wax_account: str = None
+    pay_private_key: str = None
 
     build: bool = True
     mining: bool = True
@@ -91,6 +94,9 @@ class user_param:
             "use_proxy": user_param.use_proxy,
             "proxy": user_param.proxy,
             "private_key": user_param.private_key,
+            "use_pay_agent": user_param.use_pay_agent,
+            "pay_wax_account": user_param.pay_wax_account,
+            "pay_private_key": user_param.pay_private_key,
             "rpc_domain_list": user_param.rpc_domain_list,
             "rpc_domain": user_param.rpc_domain,
             "assets_domain_list": user_param.assets_domain_list,
@@ -144,6 +150,9 @@ def load_user_param(user: dict):
     user_param.use_proxy = user.get("use_proxy", True)
     user_param.proxy = user.get("proxy", None)
     user_param.private_key = user.get("private_key", None)
+    user_param.use_pay_agent = user.get("use_pay_agent", False)
+    user_param.pay_wax_account = user["pay_wax_account"]
+    user_param.pay_private_key = user.get("pay_private_key",None)
     user_param.rpc_domain_list = user.get("rpc_domain_list", ['https://api.wax.alohaeos.com'])
     user_param.rpc_domain = user.get("rpc_domain", 'https://api.wax.alohaeos.com')
     user_param.assets_domain_list = user.get("assets_domain_list", ['https://wax.api.atomicassets.io'])
