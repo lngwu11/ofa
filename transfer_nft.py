@@ -176,8 +176,7 @@ class Farmer:
                 # 玉米种子
                 cornseed_list.append(item['asset_id'])
         self.log.info(
-            f"查询完成【大麦{len(barley_list)}】【玉米{len(corn_list)}】【大麦种子{len(barleyseed_list)}】【玉米种子{len(cornseed_list)}】")
-        self.log.info(f"【农夫币{len(fcoin_list)}】【牛奶{len(milk_list)}】")
+            f"查询完成【大麦{len(barley_list)}】【玉米{len(corn_list)}】【大麦种子{len(barleyseed_list)}】【玉米种子{len(cornseed_list)}】【农夫币{len(fcoin_list)}】【牛奶{len(milk_list)}】")
         self.log.info("开始转移NFT")
         for accountItem in transfer_nft_config.transfer_list:
             transfer_asset_ids = []
