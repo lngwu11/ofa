@@ -17,7 +17,7 @@ def push_transaction(params_json):
         payload = {
             "account": item['account'],
             "name": item['name'],
-            "authorization": item['authorization'],
+            "authorization": get_authorization(),
         }
 
         # Converting payload to binary
@@ -34,9 +34,33 @@ def push_transaction(params_json):
     # key = "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"
     # use EOSKey:
 
-    key = eospy.keys.EOSKey(user_param.private_key)
+    # key = eospy.keys.EOSKey(user_param.private_key)
     try:
-        resp = ce.push_transaction(trx, key, broadcast=True)
+        resp = ce.push_transaction(trx, get_keys(), broadcast=True)
         return True, resp
     except HTTPError as e:
         return False, str(e)
+
+
+def get_authorization():
+    authorization = []
+    if user_param.use_pay_agent:
+        authorization.append({
+            "actor": user_param.pay_wax_account,
+            "permission": "active",
+        })
+
+    authorization.append({
+        "actor": user_param.wax_account,
+        "permission": "active",
+    })
+    return authorization
+
+
+def get_keys():
+    keys = []
+    if user_param.use_pay_agent:
+        keys.append(eospy.keys.EOSKey(user_param.pay_private_key))
+
+    keys.append(eospy.keys.EOSKey(user_param.private_key))
+    return keys
